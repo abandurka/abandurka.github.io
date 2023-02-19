@@ -127,5 +127,7 @@ jekyll-archives:
     tag: /tags/:name/
     category: /categories/:name/
 
+google_site_verification: 21EiQRBCmwCncrZ873qV2kOfk2H32aNSo_9Q_Yk3mFI
+
 google_analytics:
   id: G-HSVB84RGFB
