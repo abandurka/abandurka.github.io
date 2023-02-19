@@ -18,43 +18,111 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Personal web site Anton Bandurka
+title: Anton Bandurka
+tagline: >-
+  Software should solve problems or simplify the world. Programming is just a tool to achieve a goal.
+  Software development is more about communication and less about coding.
 email: anton.bandurka@yandex.ru
 description: >- # this means to ignore newlines until "baseurl:"
   Hi, I'm Tony! This is my personal site. I'm glad to share knowledge with u!
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://abandurka.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
-github_username:  abandurka
+avatar: /assets/img/avatar.jpg
 
-# Build settings
-theme: minima
+
+github:
+  username: abandurka             # change to your github username
+
+social:
+  # Change to your full name.
+  # It will be displayed as the default author of the posts and the copyright owner in the Footer
+  name: Anton Bandurka
+  email: anton.bandurka@yandex.ru
+  links:
+    - https://github.com/abandurka
+    - https://www.linkedin.com/in/anton-bandurka-816a5455
+
+theme: jekyll-theme-chirpy
 plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-spaceship
+
+lang: en
 
 defaults:
   - scope:
       path: "assets/img"
     values:
       image: true
+  - scope:
+      path: _drafts
+    values:
+      comments: false
+  - scope:
+      path: ''
+      type: tabs             # see `site.collections`
+    values:
+      layout: page
+      permalink: /:title/
+  - scope:
+      path: assets/img/favicons
+    values:
+      swcache: true
+  - scope:
+      path: assets/js/dist
+    values:
+      swcache: true
 
-# Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+pwa:
+  enabled: true   # the option for PWA feature
+
+paginate: 10
+
+kramdown:
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:   # Rouge Options › https://github.com/jneen/rouge#full-options
+    css_class: highlight
+    # default_lang: console
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
+
+collections:
+  tabs:
+    output: true
+    sort_by: order
+
+sass:
+  style: compressed
+
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  profile: false
+  blanklines: false
+  ignore:
+    envs: [development]
+
+exclude:
+  - '*.gem'
+  - '*.gemspec'
+  - tools
+  - README.md
+  - CHANGELOG.md
+  - LICENSE
+  - gulpfile.js
+  - node_modules
+  - package*.json
+
+jekyll-archives:
+  enabled: [categories, tags]
+  layouts:
+    category: category
+    tag: tag
+  permalinks:
+    tag: /tags/:name/
+    category: /categories/:name/
